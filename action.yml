@@ -1,0 +1,39 @@
+name: 'Tag Replacer'
+description: 'Processes input file by replacing tags with provided input parameters.'
+author: 'AlexRogalskiy'
+
+inputs:
+  sourceData:
+    description: 'JSON data source with action parameters'
+    required: false
+  prefix:
+    description: 'String data to append before replacement'
+    required: false
+  suffix:
+    description: 'String data to append after replacement'
+    required: false
+  jsonFields:
+    description: 'String representing comma-separated list of fields to process'
+    required: true
+  sourceFile:
+    description: 'Input source file to replace in'
+    required: true
+  placeholder:
+    description: 'String placeholder or regex to replace by'
+    required: true
+  replacement:
+    description: 'String data to replace with'
+    required: true
+
+outputs:
+  changed:
+    description: 'File processing operation status'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+# Ref: https://haya14busa.github.io/github-action-brandings/
+branding:
+  icon: 'file-text'
+  color: 'yellow'

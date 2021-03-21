@@ -1,0 +1,23 @@
+[
+    {
+        "prefix": "<!--views:info:marker:start-->\n",
+        "suffix": "\n<!--views:info:marker:end-->",
+        "sourceFile": "./data/info.md",
+        "placeholder": "<!--views:info:marker:start-->[\\s\\S]*?<!--views:info:marker:end-->",
+        "replacement": "<p align=\"center\" style=\"text-align:center;\">Info data block</p>"
+    },
+    {
+        "prefix": "<!--views:readme:marker:start-->\n",
+        "suffix": "\n<!--views:readme:marker:end-->",
+        "sourceFile": "./data/readme.md",
+        "placeholder": "<!--views:readme:marker:start-->[\\s\\S]*?<!--views:readme:marker:end-->",
+        "replacement": "<p align=\"center\" style=\"text-align:center;\">Readme data block</p>"
+    },
+    {
+        "prefix": "test data\n",
+        "suffix": "",
+        "sourceFile": "./data/test.md",
+        "placeholder": "test data",
+        "replacement": "<p align=\"center\" style=\"text-align:center;\">Test data block</p>"
+    }
+]
