@@ -5,7 +5,7 @@ import replaceInFile, { ReplaceInFileConfig, ReplaceResult } from 'replace-in-fi
 import { ConfigOptions } from '../typings/types'
 
 import { getDataAsJson } from './utils/files'
-import { isBlankString } from './utils/validators'
+import { isValidFile } from './utils/validators'
 import { serialize } from './utils/serializers'
 import { mergeProps } from './utils/commons'
 import { profile } from './utils/env'
@@ -71,15 +71,15 @@ export default async function run(): Promise<void> {
     try {
         const sourceData = core.getInput('sourceData')
 
-        if (!isBlankString(sourceData)) {
+        if (isValidFile(sourceData)) {
             const options = getDataAsJson(sourceData)
             await processData(...options)
         } else {
             await processData({})
         }
     } catch (e) {
-        core.setFailed(`Cannot process input file, message: ${e.message}`)
+        core.setFailed(`Cannot process input file data, message: ${e.message}`)
     }
 }
 
-run()
+void run()

@@ -1,6 +1,14 @@
 import * as core from '@actions/core'
 import { join } from 'path'
-import { existsSync, MakeDirectoryOptions, mkdirSync, readFileSync, writeFile } from 'fs'
+import {
+    accessSync,
+    constants,
+    existsSync,
+    MakeDirectoryOptions,
+    mkdirSync,
+    readFileSync,
+    writeFile,
+} from 'fs'
 
 import { ConfigOptions } from '../../typings/types'
 
@@ -30,4 +38,14 @@ export const storeDataAsJson = async (filePath: string, fileName: string, data: 
     })
 
     return true
+}
+
+export const checkFileExists = (fileName: string, mode = constants.F_OK | constants.R_OK): boolean => {
+    try {
+        accessSync(fileName, mode)
+
+        return true
+    } catch (err) {
+        return false
+    }
 }

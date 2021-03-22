@@ -25,4 +25,5 @@ export declare const hasProperty: (obj: any, prop: Optional<PropertyKey>) => boo
  */
 export declare const hasProperty2: (obj: any, prop: PropertyKey) => boolean;
 export declare const isBlankString: (value: string) => boolean;
+export declare const isValidFile: (fileName: string, extension?: string) => boolean;
 //# sourceMappingURL=validators.d.ts.map
