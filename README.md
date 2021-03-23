@@ -122,7 +122,7 @@ Processes input file by replacing tags with provided input parameters.
 
 ### `prefix`
 
-**Optional** String data to append before replacement
+**Optional** String data to prepend before replacement
 
 ### `suffix`
 

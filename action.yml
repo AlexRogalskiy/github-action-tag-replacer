@@ -7,14 +7,11 @@ inputs:
     description: 'JSON data source with action parameters'
     required: false
   prefix:
-    description: 'String data to append before replacement'
+    description: 'String data to prepend before replacement'
     required: false
   suffix:
     description: 'String data to append after replacement'
     required: false
-  jsonFields:
-    description: 'String representing comma-separated list of fields to process'
-    required: true
   sourceFile:
     description: 'Input source file to replace in'
     required: true
