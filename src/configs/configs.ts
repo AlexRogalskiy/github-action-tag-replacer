@@ -2,15 +2,15 @@ import { Profile } from '../../typings/enum-types'
 import { ProfileOptions } from '../../typings/domain-types'
 
 /**
- * ConfigOptions
- * @desc Type representing tag configuration options by profile
+ * ProfileRecord
+ * @desc Type representing profile configuration options
  */
-export type ConfigOptions = Record<Profile, Partial<ProfileOptions>>
+export type ProfileRecord = Record<Profile, Partial<ProfileOptions>>
 
 /**
  * Tag configuration options
  */
-export const CONFIG: Readonly<ConfigOptions> = {
+export const CONFIG: Readonly<ProfileRecord> = {
     dev: {
         allowEmptyPaths: true,
         disableGlobs: false,
