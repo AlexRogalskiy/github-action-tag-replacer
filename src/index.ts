@@ -8,6 +8,7 @@ import { getDataAsJson } from './utils/files'
 import { isValidFile } from './utils/validators'
 import { serialize } from './utils/serializers'
 import { mergeProps } from './utils/commons'
+
 import { profile } from './utils/env'
 
 const replaceContent = async (options: ReplaceInFileConfig): Promise<ReplaceResult[]> => {
