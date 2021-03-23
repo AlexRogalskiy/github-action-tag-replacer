@@ -9,7 +9,7 @@ export declare type ConfigOptions = {
      */
     prefix?: string;
     /**
-     * Suffit to include
+     * Suffix to include
      */
     suffix?: string;
     /**
