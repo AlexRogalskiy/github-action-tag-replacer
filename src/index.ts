@@ -1,5 +1,4 @@
 import * as core from '@actions/core'
-import { basename } from 'path'
 import replaceInFile, { ReplaceInFileConfig, ReplaceResult } from 'replace-in-file'
 
 import { ConfigOptions } from '../typings/domain-types'
@@ -46,7 +45,7 @@ const getConfigOptions = (options: any = {}): Required<ConfigOptions> => {
 
     const sourceFile = options.sourceFile || core.getInput('sourceFile', { required: true })
     const placeholder = options.placeholder || core.getInput('placeholder', { required: true })
-    const replacement = options.replacement || core.getInput('replacement') || basename(sourceFile)
+    const replacement = options.replacement || core.getInput('replacement', { required: true })
 
     return {
         prefix,
