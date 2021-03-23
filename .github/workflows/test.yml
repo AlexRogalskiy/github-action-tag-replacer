@@ -47,7 +47,7 @@ jobs:
       - name: Circular dependency check
         uses: gerrit0/circular-dependency-check@v1
         with:
-            entry: dist/index.js
+          entry: dist/index.js
 
   test:
     runs-on: ubuntu-latest
@@ -61,6 +61,9 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Build Dependencies
+        run: npm all
 
       - uses: ./
         with:
