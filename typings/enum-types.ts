@@ -5,4 +5,5 @@
 export enum Profile {
     dev = 'dev',
     prod = 'prod',
+    test = 'test',
 }

@@ -1,8 +1,15 @@
 import { Profile } from '../../typings/enum-types'
-import { ProfileOptions } from '../../typings/types'
+import { ProfileOptions } from '../../typings/domain-types'
 
-export type ConfigOptions = Record<Profile, ProfileOptions>
+/**
+ * ConfigOptions
+ * @desc Type representing tag configuration options by profile
+ */
+export type ConfigOptions = Record<Profile, Partial<ProfileOptions>>
 
+/**
+ * Tag configuration options
+ */
 export const CONFIG: Readonly<ConfigOptions> = {
     dev: {
         allowEmptyPaths: true,
@@ -12,6 +19,11 @@ export const CONFIG: Readonly<ConfigOptions> = {
     prod: {
         allowEmptyPaths: false,
         disableGlobs: true,
+        encoding: 'utf-8',
+    },
+    test: {
+        allowEmptyPaths: false,
+        disableGlobs: false,
         encoding: 'utf-8',
     },
 }

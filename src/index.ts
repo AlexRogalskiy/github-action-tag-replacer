@@ -2,7 +2,7 @@ import * as core from '@actions/core'
 import { basename } from 'path'
 import replaceInFile, { ReplaceInFileConfig, ReplaceResult } from 'replace-in-file'
 
-import { ConfigOptions } from '../typings/types'
+import { ConfigOptions } from '../typings/domain-types'
 
 import { getDataAsJson } from './utils/files'
 import { isValidFile } from './utils/validators'

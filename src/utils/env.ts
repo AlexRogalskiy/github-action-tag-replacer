@@ -1,4 +1,4 @@
-import { ProfileOptions } from '../../typings/types'
+import { ProfileOptions } from '../../typings/domain-types'
 
 import { hasProperty } from './validators'
 import { CONFIG } from '../configs/configs'
