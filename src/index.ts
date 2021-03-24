@@ -10,7 +10,7 @@ import { isValidFile } from './utils/validators'
 import { serialize } from './utils/serializers'
 import { mergeProps } from './utils/commons'
 
-import { profile } from './utils/env'
+import { profile } from './utils/profiles'
 
 const replaceContent = async (options: ReplaceInFileConfig): Promise<ReplaceResult[]> => {
     const result = await replaceInFile.replaceInFile(options)
@@ -25,10 +25,12 @@ const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
         boxen(`Processing input source file with options: ${serialize(options)}`, profile.outputOptions)
     )
 
-    const fileOptions: ReplaceInFileConfig = mergeProps(profile, {
-        files: options.sourceFile,
-        from: new RegExp(options.placeholder),
-        to: `${options.prefix}${options.replacement}${options.suffix}`,
+    const { prefix, suffix, sourceFile, placeholder, replacement } = options
+
+    const fileOptions: ReplaceInFileConfig = mergeProps(profile.replaceOptions, {
+        files: sourceFile,
+        from: new RegExp(placeholder),
+        to: `${prefix}${replacement}${suffix}`,
     })
 
     const result = await replaceContent(fileOptions)
@@ -74,7 +76,7 @@ const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<b
 }
 
 const runReplacingOperation = async (): Promise<void> => {
-    const sourceData = core.getInput('sourceData')
+    const sourceData = getProperty('sourceData')
 
     let status: boolean
     if (isValidFile(sourceData)) {

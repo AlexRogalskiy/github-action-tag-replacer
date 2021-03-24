@@ -37,6 +37,10 @@
 [![Public workflows that use this action.][total_usages]][search_results]
 [![Licence][license_id]][license_content]
 
+[![Chat](https://img.shields.io/badge/chat-discussions-success.svg)](https://github.com/AlexRogalskiy/github-action-tag-replacer/discussions)
+[![Open questions](https://img.shields.io/badge/Open-questions-blue.svg?style=flat-curved)](https://github.com/AlexRogalskiy/github-action-tag-replacer/labels/question)
+[![Open bugs](https://img.shields.io/badge/Open-bugs-red.svg?style=flat-curved)](https://github.com/AlexRogalskiy/github-action-tag-replacer/labels/bug)
+
 ## _Table of contents_
 
 <!--ts-->
