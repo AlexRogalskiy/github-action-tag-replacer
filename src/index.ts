@@ -1,9 +1,11 @@
 import * as core from '@actions/core'
+
 import replaceInFile, { ReplaceInFileConfig, ReplaceResult } from 'replace-in-file'
+import boxen from 'boxen'
 
 import { ConfigOptions } from '../typings/domain-types'
 
-import { getDataAsJson } from './utils/files'
+import { getConfigOptions } from './utils/files'
 import { isValidFile } from './utils/validators'
 import { serialize } from './utils/serializers'
 import { mergeProps } from './utils/commons'
@@ -11,21 +13,16 @@ import { mergeProps } from './utils/commons'
 import { profile } from './utils/env'
 
 const replaceContent = async (options: ReplaceInFileConfig): Promise<ReplaceResult[]> => {
-    const results = await replaceInFile.replaceInFile(options)
+    const result = await replaceInFile.replaceInFile(options)
 
-    core.info(`Replacement results: ${serialize(results)}`)
+    core.info(boxen(`Replacement results: ${serialize(result)}`, profile.outputOptions))
 
-    return results
+    return result
 }
 
-const processSourceFile = async (options: Required<ConfigOptions>): Promise<boolean> => {
+const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
     core.info(
-        `
-        Processing source file: ${options.sourceFile} with:
-        prefix=${options.prefix},
-        suffix=${options.suffix},
-        placeholder=${options.placeholder}
-        `
+        boxen(`Processing input source file with options: ${serialize(options)}`, profile.outputOptions)
     )
 
     const fileOptions: ReplaceInFileConfig = mergeProps(profile, {
@@ -36,16 +33,16 @@ const processSourceFile = async (options: Required<ConfigOptions>): Promise<bool
 
     const result = await replaceContent(fileOptions)
 
-    return result.every(v => v.hasChanged)
+    return result.every(value => value.hasChanged)
 }
 
-const getConfigOptions = (options: any = {}): Required<ConfigOptions> => {
-    const prefix = options.prefix || core.getInput('prefix')
-    const suffix = options.suffix || core.getInput('suffix')
+const buildConfigOptions = (options: Partial<ConfigOptions>): ConfigOptions => {
+    const prefix = options.prefix || getProperty('prefix')
+    const suffix = options.suffix || getProperty('suffix')
 
-    const sourceFile = options.sourceFile || core.getInput('sourceFile', { required: true })
-    const placeholder = options.placeholder || core.getInput('placeholder', { required: true })
-    const replacement = options.replacement || core.getInput('replacement', { required: true })
+    const sourceFile = options.sourceFile || getRequiredProperty('sourceFile')
+    const placeholder = options.placeholder || getRequiredProperty('placeholder')
+    const replacement = options.replacement || getRequiredProperty('replacement')
 
     return {
         prefix,
@@ -56,12 +53,35 @@ const getConfigOptions = (options: any = {}): Required<ConfigOptions> => {
     }
 }
 
-const processData = async (...options: ConfigOptions[]): Promise<void> => {
-    let status = false
+const getRequiredProperty = (property: string): string => {
+    return getProperty(property, { required: true })
+}
 
-    for (const item of options) {
-        const options = getConfigOptions(item)
-        status = await processSourceFile(options)
+const getProperty = (property: string, options?: core.InputOptions): string => {
+    return core.getInput(property, options)
+}
+
+const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<boolean> => {
+    const result: boolean[] = []
+
+    for (const option of options) {
+        const options = buildConfigOptions(option)
+        const status = await processSourceFile(options)
+        result.push(status)
+    }
+
+    return result.every(value => value)
+}
+
+const runReplacingOperation = async (): Promise<void> => {
+    const sourceData = core.getInput('sourceData')
+
+    let status: boolean
+    if (isValidFile(sourceData)) {
+        const options = getConfigOptions(sourceData)
+        status = await executeOperation(...options)
+    } else {
+        status = await executeOperation({})
     }
 
     core.setOutput('changed', status)
@@ -69,14 +89,7 @@ const processData = async (...options: ConfigOptions[]): Promise<void> => {
 
 export default async function run(): Promise<void> {
     try {
-        const sourceData = core.getInput('sourceData')
-
-        if (isValidFile(sourceData)) {
-            const options = getDataAsJson(sourceData)
-            await processData(...options)
-        } else {
-            await processData({})
-        }
+        await runReplacingOperation()
     } catch (e) {
         core.setFailed(`Cannot process input file data, message: ${e.message}`)
     }

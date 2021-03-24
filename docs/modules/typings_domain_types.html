@@ -72,6 +72,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="typings_domain_types.html#configoptions" class="tsd-kind-icon">Config<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="typings_domain_types.html#profileoptions" class="tsd-kind-icon">Profile<wbr>Options</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="typings_domain_types.html#replaceoptions-1" class="tsd-kind-icon">Replace<wbr>Options</a></li>
 							</ul>
 						</section>
 					</div>
@@ -82,10 +83,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="configoptions" class="tsd-anchor"></a>
 					<h3>Config<wbr>Options</h3>
-					<div class="tsd-signature tsd-kind-icon">Config<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>placeholder<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>replacement<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>sourceFile<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>suffix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
+					<div class="tsd-signature tsd-kind-icon">Config<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>placeholder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>replacement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>sourceFile<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>suffix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-tag-replacer/blob/1178ade/typings/domain-types.ts#L7">typings/domain-types.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-tag-replacer/blob/515bace/typings/domain-types.ts#L9">typings/domain-types.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -102,7 +103,7 @@
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> placeholder<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<h5><span class="tsd-flag ts-flagReadonly">Readonly</span> placeholder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
 										<p>Placeholder or regex to replace by</p>
@@ -110,7 +111,7 @@
 								</div>
 							</li>
 							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
 										<p>Prefix to include</p>
@@ -118,7 +119,7 @@
 								</div>
 							</li>
 							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> replacement<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<h5><span class="tsd-flag ts-flagReadonly">Readonly</span> replacement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
 										<p>Replacement string data</p>
@@ -126,7 +127,7 @@
 								</div>
 							</li>
 							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> source<wbr>File<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<h5><span class="tsd-flag ts-flagReadonly">Readonly</span> source<wbr>File<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
 										<p>Source file to process</p>
@@ -134,10 +135,10 @@
 								</div>
 							</li>
 							<li class="tsd-parameter">
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> suffix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> suffix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
-										<p>Suffit to include</p>
+										<p>Suffix to include</p>
 									</div>
 								</div>
 							</li>
@@ -147,10 +148,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="profileoptions" class="tsd-anchor"></a>
 					<h3>Profile<wbr>Options</h3>
-					<div class="tsd-signature tsd-kind-icon">Profile<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReplaceInFileConfig</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;files&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;from&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;to&quot;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Profile<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>outputOptions<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boxen.Options</span><span class="tsd-signature-symbol">; </span>replaceOptions<span class="tsd-signature-symbol">?: </span><a href="typings_domain_types.html#replaceoptions-1" class="tsd-signature-type" data-tsd-kind="Type alias">ReplaceOptions</a><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-tag-replacer/blob/1178ade/typings/domain-types.ts#L34">typings/domain-types.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-tag-replacer/blob/515bace/typings/domain-types.ts#L36">typings/domain-types.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -160,6 +161,47 @@
 						<dl class="tsd-comment-tags">
 							<dt>desc</dt>
 							<dd><p>Type representing profile options</p>
+							</dd>
+						</dl>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> output<wbr>Options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boxen.Options</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Output options</p>
+									</div>
+								</div>
+							</li>
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> replace<wbr>Options<span class="tsd-signature-symbol">?: </span><a href="typings_domain_types.html#replaceoptions-1" class="tsd-signature-type" data-tsd-kind="Type alias">ReplaceOptions</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Image resize options</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="replaceoptions-1" class="tsd-anchor"></a>
+					<h3>Replace<wbr>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">Replace<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Omit</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ReplaceInFileConfig</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">&quot;files&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;from&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;to&quot;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/AlexRogalskiy/github-action-tag-replacer/blob/515bace/typings/domain-types.ts#L51">typings/domain-types.ts:51</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>ReplaceOptions</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>desc</dt>
+							<dd><p>Type representing replace options</p>
 							</dd>
 						</dl>
 					</div>
@@ -177,6 +219,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="src_configs_configs.html">src/configs/configs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="src_constants_constants.html">src/constants/constants</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="src_errors_errors.html">src/errors/errors</a>
@@ -214,6 +259,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="typings_domain_types.html#profileoptions" class="tsd-kind-icon">Profile<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="typings_domain_types.html#replaceoptions-1" class="tsd-kind-icon">Replace<wbr>Options</a>
 					</li>
 				</ul>
 			</nav>

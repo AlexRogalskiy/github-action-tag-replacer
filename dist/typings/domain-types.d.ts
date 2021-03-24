@@ -1,3 +1,4 @@
+import boxen from 'boxen';
 import { ReplaceInFileConfig } from 'replace-in-file';
 /**
  * ConfigOptions
@@ -7,27 +8,41 @@ export declare type ConfigOptions = {
     /**
      * Prefix to include
      */
-    prefix?: string;
+    readonly prefix?: string;
     /**
      * Suffix to include
      */
-    suffix?: string;
+    readonly suffix?: string;
     /**
      * Source file to process
      */
-    sourceFile?: string;
+    readonly sourceFile: string;
     /**
      * Placeholder or regex to replace by
      */
-    placeholder?: string;
+    readonly placeholder: string;
     /**
      * Replacement string data
      */
-    replacement?: string;
+    readonly replacement: string;
 };
 /**
  * ProfileOptions
  * @desc Type representing profile options
  */
-export declare type ProfileOptions = Omit<ReplaceInFileConfig, 'files' | 'from' | 'to'>;
+export declare type ProfileOptions = {
+    /**
+     * Image resize options
+     */
+    readonly replaceOptions?: ReplaceOptions;
+    /**
+     * Output options
+     */
+    readonly outputOptions?: boxen.Options;
+};
+/**
+ * ReplaceOptions
+ * @desc Type representing replace options
+ */
+export declare type ReplaceOptions = Omit<ReplaceInFileConfig, 'files' | 'from' | 'to'>;
 //# sourceMappingURL=domain-types.d.ts.map

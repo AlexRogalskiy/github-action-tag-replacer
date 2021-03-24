@@ -66,8 +66,8 @@
 				<p><a href="https://github.com/lekterable/perfekt"><img src="https://img.shields.io/badge/management-perfekt%F0%9F%91%8C-red.svg" alt="management: perfekt👌"></a>
 					<a href="https://github.com/prettier/prettier"><img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" alt="code style: prettier"></a>
 					<img src="https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/github-action-tag-replacer" alt="Mergify Status">
-				<a href="https://houndci.com"><img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg" alt="Reviewed by Hound"></a></p>
-				<!-- [![Become a sponsor](https://img.shields.io/badge/sponsor-AlexRogalskiy-181717.svg?logo=github)](https://github.com/sponsors/AlexRogalskiy)-->
+					<a href="https://houndci.com"><img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg" alt="Reviewed by Hound"></a>
+				<a href="https://github.com/AlexRogalskiy/github-action-tag-replacer/discussions"><img src="https://img.shields.io/badge/chat-discussions-success.svg" alt="Chat"></a></p>
 				<p><a href="https://deepscan.io/dashboard#view=project&amp;tid=11946&amp;pid=16314&amp;bid=347248"><img src="https://deepscan.io/api/teams/11946/projects/16314/branches/347248/badge/grade.svg" alt="DeepScan grade"></a>
 					<img src="https://img.shields.io/github/v/tag/AlexRogalskiy/github-action-tag-replacer" alt="GitHub tag (latest by date)">
 					<img src="https://img.shields.io/github/release-date/AlexRogalskiy/github-action-tag-replacer" alt="GitHub Release Date">
@@ -97,21 +97,16 @@
 				</a>
 				<!--ts-->
 				<ul>
-					<li><a href="#tag-replacer"><em>Tag replacer</em></a><ul>
+					<li><a href="#tag-replacer"><em>Tag Replacer</em></a><ul>
 							<li><a href="#table-of-contents"><em>Table of contents</em></a></li>
 							<li><a href="#description"><em>Description</em></a></li>
 							<li><a href="#inputs"><em>Inputs</em></a><ul>
 									<li><a href="#sourcedata">sourceData</a></li>
-									<li><a href="#mode">mode</a><ul>
-											<li><a href="#unique">unique</a></li>
-											<li><a href="#duplicate">duplicate</a></li>
-										</ul>
-									</li>
-									<li><a href="#jsonpath">jsonPath</a></li>
-									<li><a href="#jsonfields">jsonFields</a></li>
+									<li><a href="#prefix">prefix</a></li>
+									<li><a href="#suffix">suffix</a></li>
 									<li><a href="#sourcefile">sourceFile</a></li>
-									<li><a href="#targetpath">targetPath</a></li>
-									<li><a href="#targetfile">targetFile</a></li>
+									<li><a href="#placeholder">placeholder</a></li>
+									<li><a href="#replacement">replacement</a></li>
 								</ul>
 							</li>
 							<li><a href="#outputs"><em>Outputs</em></a><ul>
@@ -186,7 +181,7 @@
 				<a href="#prefix" id="prefix" style="color: inherit; text-decoration: none;">
 					<h3><code>prefix</code></h3>
 				</a>
-				<p><strong>Optional</strong> String data to append before replacement</p>
+				<p><strong>Optional</strong> String data to prepend before replacement</p>
 				<a href="#suffix" id="suffix" style="color: inherit; text-decoration: none;">
 					<h3><code>suffix</code></h3>
 				</a>
@@ -306,6 +301,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/src_configs_configs.html">src/configs/configs</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/src_constants_constants.html">src/constants/constants</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/src_errors_errors.html">src/errors/errors</a>

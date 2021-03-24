@@ -1,6 +1,10 @@
 import { Profile } from '../../typings/enum-types'
 import { ProfileOptions } from '../../typings/domain-types'
 
+import { OUTPUT_OPTIONS, REPLACE_OPTIONS } from '../constants/constants'
+
+import { mergeProps } from '../utils/commons'
+
 /**
  * ProfileRecord
  * @desc Type representing profile configuration options
@@ -8,22 +12,19 @@ import { ProfileOptions } from '../../typings/domain-types'
 export type ProfileRecord = Record<Profile, Partial<ProfileOptions>>
 
 /**
- * Tag configuration options
+ * Configuration options
  */
 export const CONFIG: Readonly<ProfileRecord> = {
     dev: {
-        allowEmptyPaths: true,
-        disableGlobs: false,
-        encoding: 'utf-8',
+        replaceOptions: REPLACE_OPTIONS,
+        outputOptions: OUTPUT_OPTIONS,
     },
     prod: {
-        allowEmptyPaths: false,
-        disableGlobs: true,
-        encoding: 'utf-8',
+        replaceOptions: mergeProps(REPLACE_OPTIONS, { allowEmptyPaths: false, disableGlobs: true }),
+        outputOptions: OUTPUT_OPTIONS,
     },
     test: {
-        allowEmptyPaths: false,
-        disableGlobs: false,
-        encoding: 'utf-8',
+        replaceOptions: mergeProps(REPLACE_OPTIONS, { allowEmptyPaths: false }),
+        outputOptions: OUTPUT_OPTIONS,
     },
 }
