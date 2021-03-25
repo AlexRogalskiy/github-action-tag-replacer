@@ -29,8 +29,7 @@
 ![CI](https://github.com/AlexRogalskiy/github-action-tag-replacer/workflows/CI/badge.svg)
 [![CircleCI](https://circleci.com/gh/AlexRogalskiy/github-action-tag-replacer.svg?style=shield)](https://circleci.com/gh/AlexRogalskiy/github-action-tag-replacer)
 
-<!--[![codecov](https://codecov.io/gh/AlexRogalskiy/github-action-tag-replacer/branch/master/graph/badge.svg)](https://codecov.io/gh/AlexRogalskiy/github-action-tag-replacer)-->
-
+[![codecov](https://codecov.io/gh/AlexRogalskiy/github-action-tag-replacer/branch/master/graph/badge.svg?token=zSVS8RGHGZ)](https://codecov.io/gh/AlexRogalskiy/github-action-tag-replacer)
 [![GitHub Super-Linter](https://github.com/AlexRogalskiy/github-action-tag-replacer/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![ComVer](https://img.shields.io/badge/ComVer-compliant-brightgreen.svg)][repo]
