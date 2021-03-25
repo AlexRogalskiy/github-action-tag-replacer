@@ -85,12 +85,11 @@ jobs:
 
       - uses: ./
         with:
-          mode: 'unique'
-          jsonPath: 'african'
-          jsonFields: 'text'
-          sourceFile: ./data/african_proverbs.json
-          targetPath: ./data
-          targetFile: african_proverbs_unique.json
+          prefix: '<!--views:marker:start-->\n'
+          suffix: '\n<!--views:marker:end-->'
+          sourceFile: './data/info.md'
+          placeholder: '<!--views:marker:start-->[\s\S]*?<!--views:marker:end-->'
+          replacement: '<p align="center" style="text-align:center;">Data Block</p>'
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
