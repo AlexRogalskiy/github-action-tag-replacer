@@ -9,4 +9,6 @@ npm run changelog
 git add dist/
 git add docs/
 git add src/
+
+git add CHANGELOG.md
 git add package-lock.json
