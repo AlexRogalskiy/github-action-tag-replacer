@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [10.x, 11.x, 12.x, 14.x]
@@ -24,3 +23,10 @@ jobs:
       - run: npm run all
       - run: npm run test:all
       - run: npm run check:all
+      - name: coverage
+        uses: codecov/codecov-action@v1
+        with:
+          name: actions ${{ matrix.node-version }}
+          file: ./coverage/coverage-final.json
+          fail_ci_if_error: true
+          verbose: true
