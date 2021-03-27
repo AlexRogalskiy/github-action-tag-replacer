@@ -1,7 +1,6 @@
 import * as core from '@actions/core'
 
 import replaceInFile, { ReplaceInFileConfig, ReplaceResult } from 'replace-in-file'
-import boxen from 'boxen'
 
 import { ConfigOptions } from '../typings/domain-types'
 
@@ -11,19 +10,18 @@ import { serialize } from './utils/serializers'
 import { mergeProps } from './utils/commons'
 
 import { profile } from './utils/profiles'
+import { coreInfo } from './utils/loggers'
 
 const replaceContent = async (options: ReplaceInFileConfig): Promise<ReplaceResult[]> => {
     const result = await replaceInFile.replaceInFile(options)
 
-    core.info(boxen(`Replacement results: ${serialize(result)}`, profile.outputOptions))
+    coreInfo(`Replacement results: ${serialize(result)}`)
 
     return result
 }
 
 const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
-    core.info(
-        boxen(`Processing input source file with options: ${serialize(options)}`, profile.outputOptions)
-    )
+    coreInfo(`Processing input source file with options: ${serialize(options)}`)
 
     const { prefix, suffix, sourceFile, placeholder, replacement } = options
 
