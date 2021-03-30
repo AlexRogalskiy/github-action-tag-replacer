@@ -90,8 +90,8 @@ const runReplacingOperation = async (): Promise<void> => {
 export default async function run(): Promise<void> {
     try {
         await runReplacingOperation()
-    } catch (e) {
-        core.setFailed(`Cannot process input file data, message: ${e.message}`)
+    } catch (error) {
+        core.setFailed(`Cannot process input file data, message: ${error.message}`)
     }
 }
 

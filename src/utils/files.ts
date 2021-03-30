@@ -9,6 +9,7 @@ import {
     writeFile,
 } from 'fs'
 
+import { coreInfo } from './loggers'
 import { ConfigOptions } from '../../typings/domain-types'
 
 import { deserialize, serialize } from './serializers'
@@ -28,7 +29,7 @@ export const storeDataAsJson = async (filePath: string, fileName: string, data: 
 
     const targetPath = join(filePath, fileName)
 
-    console.log(`Storing JSON data to target file: ${targetPath}`)
+    coreInfo(`Storing JSON data to target file: ${targetPath}`)
 
     writeFile(targetPath, serialize(data), err => {
         if (err) {
@@ -42,7 +43,7 @@ export const checkFileExists = (fileName: string, mode = constants.F_OK | consta
         accessSync(fileName, mode)
 
         return true
-    } catch (err) {
+    } catch (error) {
         return false
     }
 }
