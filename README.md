@@ -48,6 +48,8 @@
       * [<em>Description</em>](#description)
       * [<em>Inputs</em>](#inputs)
          * [sourceData](#sourcedata)
+            * [Complete parameters](#complete-parameters)
+            * [Basic parameters](#basic-parameters)
          * [prefix](#prefix)
          * [suffix](#suffix)
          * [sourceFile](#sourcefile)
