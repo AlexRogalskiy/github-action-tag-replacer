@@ -91,7 +91,9 @@ Processes input file by replacing tags with provided input parameters.
 
 ### `sourceData`
 
-**Optional** JSON data source file with following action parameters (just for actual example):
+**Optional** JSON data source file with action parameters:
+
+#### Complete parameters
 
 ```json
 [
@@ -112,6 +114,28 @@ Processes input file by replacing tags with provided input parameters.
     {
         "prefix": "test data\n",
         "suffix": "",
+        "sourceFile": "./data/test.md",
+        "placeholder": "test data",
+        "replacement": "<p align=\"center\" style=\"text-align:center;\">Test data block</p>"
+    }
+]
+```
+
+#### Basic parameters
+
+```json
+[
+    {
+        "sourceFile": "./data/info.md",
+        "placeholder": "<!--views:info:marker:start-->[\\s\\S]*?<!--views:info:marker:end-->",
+        "replacement": "<p align=\"center\" style=\"text-align:center;\">Info data block</p>"
+    },
+    {
+        "sourceFile": "./data/readme.md",
+        "placeholder": "<!--views:readme:marker:start-->[\\s\\S]*?<!--views:readme:marker:end-->",
+        "replacement": "<p align=\"center\" style=\"text-align:center;\">Readme data block</p>"
+    },
+    {
         "sourceFile": "./data/test.md",
         "placeholder": "test data",
         "replacement": "<p align=\"center\" style=\"text-align:center;\">Test data block</p>"
