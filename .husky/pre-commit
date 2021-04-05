@@ -12,5 +12,7 @@ git add tests/
 git add typings/
 
 git add -f dist/index.js
+
+git add README.md
 git add CHANGELOG.md
 git add package-lock.json
