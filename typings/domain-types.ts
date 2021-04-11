@@ -28,7 +28,7 @@ export type ConfigOptions = {
      */
     readonly replacement: string
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * ProfileOptions
  * @desc Type representing profile options
@@ -43,9 +43,10 @@ export type ProfileOptions = {
      */
     readonly outputOptions?: boxen.Options
 }
-
+//--------------------------------------------------------------------------------------------------
 /**
  * ReplaceOptions
  * @desc Type representing replace options
  */
 export type ReplaceOptions = Omit<ReplaceInFileConfig, 'files' | 'from' | 'to'>
+//--------------------------------------------------------------------------------------------------

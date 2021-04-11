@@ -4,6 +4,7 @@ import replaceInFile, { ReplaceInFileConfig, ReplaceResult } from 'replace-in-fi
 
 import { ConfigOptions } from '../typings/domain-types'
 
+import { getProperty, getRequiredProperty } from './utils/properties'
 import { getConfigOptions } from './utils/files'
 import { isValidFile } from './utils/validators'
 import { serialize } from './utils/serializers'
@@ -20,7 +21,7 @@ const replaceContent = async (options: ReplaceInFileConfig): Promise<ReplaceResu
     return result
 }
 
-const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
+const processSourceFile = async (options: Required<ConfigOptions>): Promise<boolean> => {
     coreInfo(`Processing input source file with options: ${serialize(options)}`)
 
     const { prefix, suffix, sourceFile, placeholder, replacement } = options
@@ -36,9 +37,9 @@ const processSourceFile = async (options: ConfigOptions): Promise<boolean> => {
     return result.every(value => value.hasChanged)
 }
 
-const buildConfigOptions = (options: Partial<ConfigOptions>): ConfigOptions => {
-    const prefix = options.prefix || getProperty('prefix')
-    const suffix = options.suffix || getProperty('suffix')
+const buildConfigOptions = (options: Partial<ConfigOptions>): Required<ConfigOptions> => {
+    const prefix = options.prefix || getProperty('prefix') || ''
+    const suffix = options.suffix || getProperty('suffix') || ''
 
     const sourceFile = options.sourceFile || getRequiredProperty('sourceFile')
     const placeholder = options.placeholder || getRequiredProperty('placeholder')
@@ -53,22 +54,15 @@ const buildConfigOptions = (options: Partial<ConfigOptions>): ConfigOptions => {
     }
 }
 
-const getRequiredProperty = (property: string): string => {
-    return getProperty(property, { required: true })
-}
-
-const getProperty = (property: string, options?: core.InputOptions): string => {
-    return core.getInput(property, options)
-}
-
 const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<boolean> => {
-    const result: boolean[] = []
+    const promises: Promise<boolean>[] = []
 
     for (const option of options) {
         const options = buildConfigOptions(option)
-        const status = await processSourceFile(options)
-        result.push(status)
+        promises.push(processSourceFile(options))
     }
+
+    const result = await Promise.all(promises)
 
     return result.every(value => value)
 }
@@ -76,7 +70,7 @@ const executeOperation = async (...options: Partial<ConfigOptions>[]): Promise<b
 const runReplacingOperation = async (): Promise<void> => {
     const sourceData = getProperty('sourceData')
 
-    let status: boolean
+    let status = false
     if (isValidFile(sourceData)) {
         const options = getConfigOptions(sourceData)
         status = await executeOperation(...options)
@@ -95,4 +89,4 @@ export default async function run(): Promise<void> {
     }
 }
 
-void run()
+run()

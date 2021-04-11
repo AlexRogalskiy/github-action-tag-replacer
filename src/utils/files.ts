@@ -24,7 +24,7 @@ export const getConfigOptions = (fileName: string): Partial<ConfigOptions>[] => 
     return deserialize(fileData.toString())
 }
 
-export const storeDataAsJson = async (filePath: string, fileName: string, data: any): Promise<void> => {
+export const storeDataAsJson = (filePath: string, fileName: string, data: any): void => {
     ensureDirExists(filePath)
 
     const targetPath = join(filePath, fileName)
