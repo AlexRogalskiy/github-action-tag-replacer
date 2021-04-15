@@ -1,9 +1,8 @@
 {
     "name": "github-action-tag-replacer",
     "version": "0.0.0-dev",
-    "description": "Automatically filter JSON files by provided fields (unique/duplicate mode supported)",
+    "description": "Automatically replaces tags in files by provided parameters",
     "main": "dist/index.js",
-    "types": "dist/index.d.ts",
     "license": "GPL-3.0",
     "private": true,
     "scripts": {

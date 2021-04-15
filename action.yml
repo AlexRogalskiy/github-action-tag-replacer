@@ -1,5 +1,5 @@
 name: 'Tag Replacer'
-description: 'Processes input file by replacing tags with provided input parameters.'
+description: 'Automatically replaces tags in files by provided parameters'
 author: 'AlexRogalskiy'
 
 inputs:
