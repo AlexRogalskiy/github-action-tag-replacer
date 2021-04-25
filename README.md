@@ -30,6 +30,7 @@
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/github-action-tag-replacer.svg)](https://david-dm.org/AlexRogalskiy/github-action-tag-replacer)
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/github-action-tag-replacer.svg)](https://david-dm.org/AlexRogalskiy/github-action-tag-replacer?type=dev)
 
+[![codebeat badge](https://codebeat.co/badges/bf5686f7-44b9-47ed-99f0-b2f8420122e5)](https://codebeat.co/projects/github-com-alexrogalskiy-github-action-tag-replacer-master)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/AlexRogalskiy/github-action-tag-replacer.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/github-action-tag-replacer/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AlexRogalskiy/github-action-tag-replacer.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/github-action-tag-replacer/context:javascript)
 [![codecov](https://codecov.io/gh/AlexRogalskiy/github-action-tag-replacer/branch/master/graph/badge.svg?token=zSVS8RGHGZ)](https://codecov.io/gh/AlexRogalskiy/github-action-tag-replacer)
